@@ -59,3 +59,7 @@ class ConferenceFlyer
 class PdfContainer {}
 // generateSVG()でSVG形式のデータを生成する
 class SvgContainer {}
+
+// index.php
+$flyer = new ConferenceFlyer();
+$flyer->output('php', 'pdf');
