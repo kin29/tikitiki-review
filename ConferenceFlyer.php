@@ -54,10 +54,16 @@ class ConferenceFlyer
     // [中略...]
 }
 
-// generatePDF()でPDF形式のデータを生成する
-class PdfContainer {}
-// generateSVG()でSVG形式のデータを生成する
-class SvgContainer {}
+class PdfContainer {
+    public static function generatePDF(string $language): PdfContainer {
+        return new self();
+    }
+}
+class SvgContainer {
+    public static function generateSVG(string $language): SvgContainer {
+        return new self();
+    }
+}
 
 // index.php
 $flyer = new ConferenceFlyer();
