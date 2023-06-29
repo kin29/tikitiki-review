@@ -25,17 +25,11 @@ class ConferenceFlyer
      */
     private function generateOutput(string $language, string $type): SvgContainer|PdfContainer
     {
-        switch ($language) {
-            case 'php' :
-                return PdfContainer::generatePDF($language); // phpでsvgでもPdfContainerで大丈夫なん？
-            case 'java':
-                if ($type === 'pdf') {
-                    return PdfContainer::generatePDF($language);
-                }
-                return SvgContainer::generateSVG($language);
-            default:
-                throw new \LogicException('Unexpected Language');
-        }
+        return match ($type) {
+            'svg' => SvgContainer::generateSVG($language),
+            'pdf' => PdfContainer::generatePDF($language),
+            default => throw new \LogicException('Unexpected Language'),
+        };
     }
 
     private function outputSVG(SvgContainer $container): bool {
