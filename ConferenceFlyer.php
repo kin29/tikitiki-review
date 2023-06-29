@@ -31,9 +31,8 @@ class ConferenceFlyer
             case 'java':
                 if ($type === 'pdf') {
                     return PdfContainer::generatePDF($language);
-                } else {
-                    return SvgContainer::generateSVG($language);
                 }
+                return SvgContainer::generateSVG($language);
             default:
                 throw new \LogicException('Unexpected Language');
         }
