@@ -17,10 +17,9 @@ class ConferenceFlyer
                 return $this->outputSVG($output);
             case 'PdfContainer':
                 return $this->outputPDF($output);
+            default:
+                throw new \LogicException('Unexpected Container Class');
         }
-
-        // ここに到達することはない
-        throw new LogicException('Unreachable!!!!!!');
     }
 
     private function generateOutput(string $language, string $type): SvgContainer|PdfContainer
@@ -34,6 +33,8 @@ class ConferenceFlyer
                 } else {
                     return SvgContainer::generateSVG($language);
                 }
+            default:
+                throw new \LogicException('Unexpected Language');
         }
     }
 
