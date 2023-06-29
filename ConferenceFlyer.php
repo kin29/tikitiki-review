@@ -4,6 +4,9 @@ declare(strict_types=1);
 class ConferenceFlyer
 {
     // [中略...]
+    /**
+     * @throws LogicException
+     */
     public function output(string $language, string $type): bool
     {
         $output = $this->generateOutput($language, $type);
@@ -17,7 +20,7 @@ class ConferenceFlyer
         }
 
         // ここに到達することはない
-        printf('Unreachable!!!!!!');
+        throw new LogicException('Unreachable!!!!!!');
     }
 
     private function generateOutput(string $language, string $type): SvgContainer|PdfContainer
