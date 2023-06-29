@@ -37,13 +37,13 @@ class ConferenceFlyer
         }
     }
 
-    public function outputSVG(SvgContainer $container) {
+    public function outputSVG(SvgContainer $container): bool {
         $result = /* ファイル書き込み処理 */
 
         return $result;
     }
 
-    public function outputPDF(PdfContainer $container) {
+    public function outputPDF(PdfContainer $container): bool {
         $result = /* ファイル書き込み処理 */
 
         return $result;
