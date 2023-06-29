@@ -23,6 +23,7 @@ class ConferenceFlyer
      */
     private function generateOutput(string $language, string $type): SvgContainer|PdfContainer
     {
+        // $typeと$languageはEnumにしたい
         return match ($type) {
             'svg' => SvgContainer::generateSVG($language),
             'pdf' => PdfContainer::generatePDF($language),
