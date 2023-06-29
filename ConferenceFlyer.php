@@ -11,11 +11,9 @@ class ConferenceFlyer
     {
         $output = $this->generateOutput($language, $type);
 
-        $output_class_name = get_class($output);
-
-        return match ($output_class_name) {
-            'SvgContainer' => $this->outputSVG($output),
-            'PdfContainer' => $this->outputPDF($output),
+        return match ($output::class) {
+            SvgContainer::class => $this->outputSVG($output),
+            PdfContainer::class => $this->outputPDF($output),
             default => throw new \LogicException('Unexpected Container Class'),
         };
     }
