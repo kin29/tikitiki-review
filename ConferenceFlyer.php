@@ -27,7 +27,7 @@ class ConferenceFlyer
     {
         switch ($language) {
             case 'php' :
-                return PdfContainer::generatePDF($language);
+                return PdfContainer::generatePDF($language); // phpでsvgでもPdfContainerで大丈夫なん？
             case 'java':
                 if ($type === 'pdf') {
                     return PdfContainer::generatePDF($language);
