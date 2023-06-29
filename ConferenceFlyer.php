@@ -37,12 +37,6 @@ class ConferenceFlyer
         }
     }
 
-    public function isUserExistInReceivedDMList(User $user): bool
-    {
-        $userName = $user->name;
-        // SQL DMの受信リストにユーザー名があるかどうか
-    }
-
     public function outputSVG(SvgContainer $container) {
         $result = /* ファイル書き込み処理 */
 
